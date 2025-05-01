@@ -166,4 +166,32 @@ public class GestionEtudiants {
             System.out.println("\nAucun étudiant n'a de notes complètes permettant de calculer une moyenne.");
         }
     }
+
+    public void afficherRésultatsÉtudiants(){
+        Etudiant[] admis = new Etudiant[1000];
+        Etudiant[] refuse = new Etudiant[1000];
+        int nbad =0;
+        int nbre =0;
+        for (int i =0 ; i<nbEtudiants ; i++){
+            if(listeEtudiants[i].calculerMoyenneGenerale()>=10){
+                admis[nbad] = listeEtudiants[i];
+                nbad++;
+            } else if (listeEtudiants[i].calculerMoyenneGenerale()<10 && listeEtudiants[i].calculerMoyenneGenerale()>=0) {
+                refuse[nbre] = listeEtudiants[i];
+                nbre++;
+            }
+        }
+        System.out.println("Liste des Etudiants Admis: ");
+        for (int i=0 ; i<nbad ; i++){
+            String nom = admis[i].getNom();
+            String prenom = admis[i].getPrenom();
+            System.out.println(nom + " " + prenom);
+        }
+        System.out.println("Liste des Etudiants refusés: ");
+        for (int i=0 ; i<nbre ; i++){
+            String nom = refuse[i].getNom();
+            String prenom = refuse[i].getPrenom();
+            System.out.println(nom + " " + prenom);
+        }
+    }
 }

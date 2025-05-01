@@ -77,12 +77,12 @@ public class Menu {
         wal.nbUEE += 2;
 
         Matiere scieSal = new Matiere("science1", 2.5f, 301);
-        scieSal.setNoteDs(14.5);
-        scieSal.setNoteExamen(15.0);
+        scieSal.setNoteDs(4.5);
+        scieSal.setNoteExamen(10.0);
 
         Matiere javaSal = new Matiere("java2", 2f, 302);
-        javaSal.setNoteDs(16.5);
-        javaSal.setNoteExamen(15.0);
+        javaSal.setNoteDs(6.5);
+        javaSal.setNoteExamen(3.5);
 
         UE svtSal = new UE("science naturelle1", 3f, 301);
         svtSal.listeDesMatiers[0] = scieSal;
@@ -211,7 +211,7 @@ public class Menu {
                 case 3:
                     int choixEtudiant;
                     do {
-                        System.out.println("\nBienvenue a la page   Étudiant veuillez choisir une commande \n taper 1 pour l ajout d un nouveau etudiant \n taper 2 pour la modiication dun etudiant existant \n taper 3 pour supprimer un etudiant \n taper 4 pour afficher la liste des etudiant \n taper 5 pour voir la fiche de note d un etudiant \n taper 6 pour connaitre le majeur de promo \n taper 7 pour rechercher un etudiant  \n taper 0 pour retourner a la page plateforme ");
+                        System.out.println("\nBienvenue a la page   Étudiant veuillez choisir une commande \n taper 1 pour l ajout d un nouveau etudiant \n taper 2 pour la modiication dun etudiant existant \n taper 3 pour supprimer un etudiant \n taper 4 pour afficher la liste des etudiant \n taper 5 pour voir la fiche de note d un etudiant \n taper 6 pour connaitre le majeur de promo \n taper 7 pour rechercher un etudiant \n taper 8 pour afficher les résultats des étudiants (Réussi, Échoué)  \n taper 0 pour retourner a la page plateforme ");
 
                         System.out.print("préciser votre commande : ");
                         choixEtudiant = sc.nextInt();
@@ -235,6 +235,9 @@ public class Menu {
                                 Etudiant e= gestionEtudiants.rechercher();
                                 e.afficherEtudiant();
                             }break;
+                            case 8: {
+                                gestionEtudiants.afficherRésultatsÉtudiants();
+                            }
                             default:
                                 System.out.println("donner une commande existante ");
                         }
